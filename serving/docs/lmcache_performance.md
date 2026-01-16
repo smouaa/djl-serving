@@ -111,7 +111,7 @@ The auto-configuration feature:
 2. **Use NVMe with O_DIRECT enabled** for workloads requiring larger cache capacity
 3. **Implement session-based sticky routing** on SageMaker Classic to maximize cache hit rates
 4. **Consider model architecture**: Models with different KV head configurations (e.g., Llama 3 8B vs Qwen 2.5-7B) will have different offloading thresholds
-5. **For multi-model deployments**: Use manual configuration instead of auto-config
+5. **Use auto-configuration** for rapid single model deployments
 
 ## Performance Validation
 

@@ -84,7 +84,7 @@ def calculate_cpu_cache_size(properties: Dict[str, str],
 
 
 def calculate_disk_cache_size(properties: Dict[str, str],
-                             model_size_gb: float) -> float:
+                              model_size_gb: float) -> float:
     """
     Calculate disk cache size for LMCache based on available disk space and TP degree.
     
@@ -329,7 +329,8 @@ def apply_lmcache_auto_config(model_path: str,
             f"{k}={v}" for k, v in list(lmcache_env_vars.items())[:3])
         logger.warning(
             f"LMCache auto-configuration detected existing LMCACHE environment variables: {env_var_list}. "
-            f"Applicable LMCache configuration variables will be overwritten by auto-configuration.")
+            f"Applicable LMCache configuration variables will be overwritten by auto-configuration."
+        )
 
     updated_properties = properties.copy()
 
