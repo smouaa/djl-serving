@@ -3,6 +3,21 @@
 Below are the release notes for recent Large Model Inference (LMI) images for use on SageMaker.
 For details on historical releases, refer to the [Github Releases page](https://github.com/deepjavalibrary/djl-serving/releases).
 
+## LMI V19 (DJL-Serving 0.36.0)
+
+#### LMI (vLLM) Image – 2-2-2026
+```
+763104351884.dkr.ecr.us-west-2.amazonaws.com/djl-inference:0.36.0-lmi19.0.0-cu128
+```
+
+##### What's New
+* vLLM has been upgraded to `0.14.0`
+* **LMCache auto configuration feature**: LMI can now provide automatic LMCache configuration for CPU and local storage offloading based on your instance resources and model size. You can enable this feature by setting `OPTION_LMCACHE_AUTO_CONFIG=True` as an environment variable.
+* **Custom output formatter fix**: Resolved an issue where user-specified `@output_formatter` was not being applied as the final formatter. Previously, DJL applied an additional LMI output formatter after the custom formatter, preventing users from fully controlling the response shape. Users can now implement custom response envelopes and alternate schemas as expected. ([#2986](https://github.com/deepjavalibrary/djl-serving/pull/2986))
+
+##### Considerations
+* Our benchmarks demonstrate consistent performance of LMI V19 compared to V18 for most models tested. However, GPT-OSS 120B with EAGLE speculative decoding shows performance regression at higher concurrency levels. We are actively working on a fix and expect to address this in an upcoming patch release.
+
 ## LMI V18 (DJL-Serving 0.36.0)
 
 Meet your brand new image! 💿
